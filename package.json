@@ -1,0 +1,25 @@
+{
+  "name": "radio",
+  "version": "1.0.0",
+  "description": "internet radio app",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "JSONPath": "^0.11.2",
+    "bluebird": "^3.5.0",
+    "clean-deep": "^2.0.1",
+    "express": "^4.15.0",
+    "flat": "^2.0.1",
+    "promise": "^7.1.1",
+    "redis": "^2.6.5",
+    "redis-server": "^1.1.0",
+    "request": "^2.80.0"
+  },
+  "devDependencies": {
+    "eslint": "^3.17.0"
+  }
+}
