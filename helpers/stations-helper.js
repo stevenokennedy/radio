@@ -1,5 +1,4 @@
 var request = require("request")
-  , JSONPath = require("JSONPath")
   , Promise = require("promise")
   , app_id = require("./app-key-helper.js");
 
@@ -16,7 +15,7 @@ exports.callStationsAPI = function() {
       );
     });
   });
-}
+};
 
 function determineTotalPages(base_url) {
   return new Promise(function (fulfill, reject) {
@@ -25,7 +24,7 @@ function determineTotalPages(base_url) {
         if(error) {
           reject(error);
         }
-        fulfill(resp.headers['x-total-pages']);
+        fulfill(resp.headers["x-total-pages"]);
       }
     );
   });
@@ -49,10 +48,6 @@ function callStationApi(url) {
           //TODO: Error handling on bad request
         }
         else {
-          /*var list = JSONPath({
-            json: JSON.parse(body),
-            path: "$..name"
-          });*/
           var list = JSON.parse(body);
           fulfill(list);
         }

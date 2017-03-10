@@ -1,16 +1,13 @@
-var express = require('express')
+var express = require("express")
   , router = express.Router()
-  , stationModel = require("../models/station.js")
-  , stationsHelper = require("../helpers/stations-helper.js");
+  , stationModel = require("../models/station.js");
 
-router.get("/", function get_station_list(req, res) {
-  stationModel.list().then(function(stationList) {
-    res.json(stationList);
-  });
-
-  router.get("/:1", function get_station_details(req, res) {
-
-  });
+router.get("/", async function get_station_list(req, res) {
+  let stationList = await stationModel.list();
+  res.json(stationList);
 });
 
-module.exports = router
+router.get("/:1", function get_station_details(req, res) {
+});
+
+module.exports = router;

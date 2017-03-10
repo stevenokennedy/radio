@@ -1,24 +1,22 @@
-var express = require('express')
-  , request = require("request")
-  , JSONPath = require("JSONPath")
+var express = require("express")
   , redisHelper = require("./helpers/redis-helper.js");
 
 const app = express();
-redisHelper.startServer().then(
-  function(server) {
-    redisHelper.getClient().then(function(client)
-    {
-      client.on("connect", function() {
-        console.log("Redis connection established");
-      })
+async function start() {
+  await redisHelper.startServer();
+  try {
+    let client = await redisHelper.getClient();
+    client.on("connect", function() {
+      console.log("Redis connection established");
     });
-  },
-  function(error) {
+  } catch (error) {
     console.log("Error!: " + error);
-  });
+  }
+}
+start();
 
 app.use(express.static("public"));
-app.use(require('./controllers'))
+app.use(require("./controllers"));
 
 app.listen(8081, function()
 {
