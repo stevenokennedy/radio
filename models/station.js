@@ -2,6 +2,12 @@ var redisHelper = require("../helpers/redis-helper.js")
   , stationsHelper = require("../helpers/stations-helper.js")
   , JSONPath = require("JSONPath");
 
+/**
+ * list - returns a list of the available radio station names wrapped in a
+ * Promise
+ *
+ * @return {Promise} - exposing an array containing the list of radio stations
+ */
 exports.list = function() {
   return new Promise(async function(fulfill, reject) {
     let client = await redisHelper.getClient();
@@ -36,8 +42,38 @@ exports.list = function() {
   });
 };
 
+
+/**
+ * get - returns details related to a particular radio station
+ *
+ * @param  {String} name - the name of the radio station we want
+ * @return {Promise}
+ */
 exports.get = function(name) {
+  return new Promise(async function(fulfill, reject){
+    let client = await redisHelper.getClient();
+    try {
+      let detail = await client.getAsync("station:" + name);
+      if(!detail) {
+        console.log("Can't find station: " + name);
+        reject("Can't find station: " + name);
+      }
+      else {
+        console.log(detail);
+        let detailsJson = JSON.parse(detail);
+        fulfill(detailsJson);
+      }
+    }
+    catch(error) {
+      console.log(error);
+      reject(error);
+    }
+  });
 };
+
+//---------------------------------------------
+// PRIVATE FUNCTIONS
+//---------------------------------------------
 
 function addToStationListCache(stationList) {
   return new Promise(async function(fulfill, reject) {

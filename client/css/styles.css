@@ -1,0 +1,77 @@
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 400;
+  src: url(http://fonts.gstatic.com/s/raleway/v11/0dTEPzkLWceF7z0koJaX1A.woff2) format('woff2');
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+  background: #cccccc;
+}
+
+.viewport-base {
+  width: 94vw;
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  background: #5B6066;
+  margin: 5vh 3vw 5vh 3vw;
+  border-radius: 0.5em;
+  box-shadow: 0px 0px 2px 1px black;
+  overflow-x: hidden;
+  font-family: "Raleway";
+}
+
+.header {
+  flex: 0 1 auto;
+  border-radius: 0.6em 0.6em 0 0;
+  margin: 1px;
+  background: linear-gradient(#4f4f4f, #000000);
+  color: #ffffff;
+  padding: 0.5em;
+}
+
+.header-content {
+    text-align: center;
+}
+
+.now-playing {
+  flex: 2 1 auto;
+  background: black;
+  margin: 0px 1px 1px 1px;
+  border: 1px inset #999999;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+}
+
+.playing-header, .playing-footer {
+  flex: 0 1 auto;
+}
+
+.playing-body {
+  flex: 2 0 auto;
+}
+
+.main-content-area {
+  flex: 5 1 auto;
+  display: flex;
+}
+
+.station-list {
+  flex: 3 0 auto
+}
+
+.station-details {
+  flex: 1 0 auto
+}
+
+.footer {
+  flex: 0 1 auto;
+}

@@ -4,8 +4,19 @@ module.exports = {
         "es6": true,
         "node": true
     },
-    "extends": "eslint:recommended",
+    "plugins": [
+      "react"
+    ],
+    "extends": [
+      "eslint:recommended",
+      "plugin:react/recommended"
+    ],
     "parser": "babel-eslint",
+    "parser-options": {
+      "ecmaFeatures": {
+        "jsx": true
+      }
+    },
     "rules": {
         "no-console":0,
         "strict": 1,

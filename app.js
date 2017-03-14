@@ -15,7 +15,7 @@ async function start() {
 }
 start();
 
-app.use(express.static("public"));
+app.use(express.static("client"));
 app.use(require("./controllers"));
 
 app.listen(8081, function()
