@@ -9689,24 +9689,41 @@ var NowPlaying = function (_React$Component) {
           "div",
           { className: "playing-header" },
           React.createElement(
-            "span",
-            { className: "label" },
-            "Country"
+            "div",
+            { className: "labelDiv playing-title" },
+            React.createElement(
+              "h3",
+              { className: "label dark" },
+              "Now Playing:"
+            )
           ),
           React.createElement(
-            "span",
-            null,
-            "IE"
+            "div",
+            { className: "labelDiv" },
+            React.createElement(
+              "h3",
+              { className: "label dark" },
+              "Country of Origin"
+            ),
+            React.createElement(
+              "h3",
+              { className: "value dark" },
+              "IE"
+            )
           ),
           React.createElement(
-            "span",
-            { className: "label" },
-            "Category"
-          ),
-          React.createElement(
-            "span",
-            null,
-            "Rock"
+            "div",
+            { className: "labelDiv" },
+            React.createElement(
+              "h3",
+              { className: "label dark" },
+              "Station Category"
+            ),
+            React.createElement(
+              "h3",
+              { className: "value dark" },
+              "Rock"
+            )
           )
         ),
         React.createElement(
@@ -9715,7 +9732,7 @@ var NowPlaying = function (_React$Component) {
           React.createElement(
             "span",
             { className: "thumb" },
-            "thumb"
+            React.createElement("img", { src: "/images/music-thumb.png" })
           ),
           React.createElement(
             "span",
@@ -9727,7 +9744,7 @@ var NowPlaying = function (_React$Component) {
           "div",
           { className: "playing-footer" },
           React.createElement(
-            "span",
+            "h3",
             { className: "label" },
             "Stream"
           )
